@@ -103,11 +103,13 @@ function invalidate_bearer_token($bearer_token){
 * Basic Search of the Search API
 * Based on https://dev.twitter.com/docs/api/1.1/get/search/tweets
 */
-function search_for_a_term($bearer_token, $result_type='mixed', $count='15'){
+
+
+function search_for_a_term($bearer_token, $linea, $result_type='mixed', $count='15'){
 	$url = "https://api.twitter.com/1.1/trends/place.json";
     //$url = "https://api.twitter.com/1.1/search/tweets.json"; // base url
-	//$q = urlencode(trim($query)); // query term
-	$formed_url ='?id=1'; // fully formed url
+	$q = urlencode(trim($linea)); // query term
+	$formed_url ='?id='.$q; // fully formed url
 	if($result_type!='mixed'){$formed_url = $formed_url.'&result_type='.$result_type;} // result type - mixed(default), recent, popular
 	if($count!='15'){$formed_url = $formed_url.'&count='.$count;} // results per page - defaulted to 15
 	$formed_url = $formed_url.'&#8217'; // makes sure the entities are included, note @mentions are not included see documentation

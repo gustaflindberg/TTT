@@ -1,6 +1,6 @@
 <?php
 $bearer_token = get_bearer_token(); // get the bearer token
-$text = search_for_a_term($bearer_token);
+$text = search_for_a_term($bearer_token, $linea);
 //var_dump($text);
 
 
@@ -28,7 +28,6 @@ $tweetv[$i] = 10000;
 $i++;
 $x++; 
 }
-    
 
 //print search_for_a_term($bearer_token); 
 invalidate_bearer_token($bearer_token); // invalidate the token

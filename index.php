@@ -8,7 +8,41 @@ include("includes/header.php");
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="css/index.css" type="text/css">
 </head>
+   <?php
+        $submittedValue = "worldwide";
+        $value0 = "worldwide";
+        $value1 = "sweden";
+        $value2 = "norway";
+        if (isset($_POST["FruitList"])) {
+            $submittedValue = $_POST["FruitList"];
+        }
+        ?>
+        <form action="" name="fruits" method="post">
+        <select project="FruitList" id="FruitList" name="FruitList">
+         <option value = "<?php echo $value0; ?>"<?php echo ($value0 == $submittedValue)?" SELECTED":""?>><?php echo $value0; ?></option>
+         <option value = "<?php echo $value1; ?>"<?php echo ($value0 == $submittedValue)?" SELECTED":""?>><?php echo $value1; ?></option>
+         <option value = "<?php echo $value2; ?>"<?php echo ($value0 == $submittedValue)?" SELECTED":""?>><?php echo $value2; ?></option>
+        </select>
+        <input type="submit" name="submit" id="submit" value="Submit" />
+        </form>
+<?php
+$search = $submittedValue;
+ // Read from file
+ $lines = file('woeidlist.txt');
 
+ $linea='';
+foreach($lines as $line)
+  {
+  // Check if the line contains the string we're looking for, and print if it does
+  if(strpos($line, $search) !== false) {
+  $liner=explode(': ',$line);
+  $linea= $liner[1];
+  }
+
+  }
+
+  echo 'Search returned: '. $linea;
+?>
 <?php
 include("includes/Oauth.php");
        ?>
