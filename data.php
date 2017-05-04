@@ -9,10 +9,24 @@ $decode = json_decode($text, true); //getting the file content as array
 
 
 $data = $decode[0]['trends'];
+$hashtag = [];
+$tweetv = [];
 
-foreach ($data as $item) { 
-echo "".$item['name']."<br />";
-echo "". $item['tweet_volume']."<br />";
+foreach ($data as $item) {
+$hashtag[] =  "".$item['name'];
+$tweetv[] = "". $item['tweet_volume'];
+//echo "".$item['name']."<br />";
+//echo "". $item['tweet_volume']."<br />";
+
+}
+$x = 0;
+$i = 0;
+while( $x < 15){
+if($tweetv[$i] == null){
+$tweetv[$i] = 10000;
+}
+$i++;
+$x++; 
 }
     
 
