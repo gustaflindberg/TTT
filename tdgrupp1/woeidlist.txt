@@ -1,3 +1,11 @@
-norway: 23424910
-worldwide: 1
-sweden: 23424954
+Norway: 23424910
+
+Worldwide: 1
+
+Sweden: 23424954
+
+Japan: 23424856
+Austrailia: 23424748
+USA: 23424977
+India: 23424848
+

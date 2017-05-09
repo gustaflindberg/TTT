@@ -5,19 +5,28 @@ include("includes/header.php");
 ?>
 
 <?php
-        $submittedValue = "worldwide";
-        $value0 = "worldwide";
-        $value1 = "sweden";
-        $value2 = "norway";
+        $submittedValue = "Worldwide";
+        $value0 = "Worldwide";
+        $value1 = "Sweden";
+        $value2 = "Norway";
+		$value3 = "Japan";
+		$value4 = "Austrailia";
+		$value5 = "USA";
+		$value6 = "India";
         if (isset($_POST["FruitList"])) {
             $submittedValue = $_POST["FruitList"];
         }
         ?>
-        <form name="fruits" method="post">
+        <form name="fruits" id="Fruits" method="post">
         <select id="FruitList" name="FruitList">
          <option value = "<?php echo $value0; ?>"<?php echo ($value0 == $submittedValue)?" SELECTED":""?>><?php echo $value0; ?></option>
          <option value = "<?php echo $value1; ?>"<?php echo ($value1 == $submittedValue)?" SELECTED":""?>><?php echo $value1; ?></option>
          <option value = "<?php echo $value2; ?>"<?php echo ($value2 == $submittedValue)?" SELECTED":""?>><?php echo $value2; ?></option>
+		 <option value = "<?php echo $value3; ?>"<?php echo ($value3 == $submittedValue)?" SELECTED":""?>><?php echo $value3; ?></option>
+		 <option value = "<?php echo $value4; ?>"<?php echo ($value4 == $submittedValue)?" SELECTED":""?>><?php echo $value4; ?></option>
+		 <option value = "<?php echo $value5; ?>"<?php echo ($value5 == $submittedValue)?" SELECTED":""?>><?php echo $value5; ?></option>
+		 <option value = "<?php echo $value6; ?>"<?php echo ($value6 == $submittedValue)?" SELECTED":""?>><?php echo $value6; ?></option>
+
         </select>
         <input type="submit" name="submit" id="submit" value="Submit" />
         </form>
@@ -37,7 +46,7 @@ foreach($lines as $line)
 
   }
 
-  echo 'Search returned: '. $linea;
+ // echo 'Search returned: '. $linea;
 ?>
 <?php
 include("includes/Oauth.php");
@@ -47,6 +56,7 @@ include("data.php");
        ?>
 
 <!--Load the AJAX API-->
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
@@ -85,7 +95,7 @@ include("data.php");
         ]);
 
         // Set chart options
-        var options = {'title':'Top trending tweets',
+        var options = {'title':'The volume is based on the last 24 hours',
                        'width':950,
                        'height':500};
 
@@ -97,6 +107,18 @@ include("data.php");
 
     <!--Div that will hold the pie chart-->
     <div id="chart_div"></div>
+	
+	<script>
+	function showDiv() {
+   document.getElementById('About_Us').style.display = "block";
+}</script>
+<input id="show" type="button" name="About Us" value="About Us" onclick="showDiv()" />
+	<div id="About_Us" style="display:none;">
+	<h1> About us </h1>
+	<p>This webpage is created to display different twitter trends worldwide. By us the drop down menu the user can select a country and view what is trending on twitter in that specific country.  </p>
+	<p>If you have any suggestions for a country we can add to list or any other questions email us at: <a href="mailto: mahe1507@student.miun.se">Send Mail</a></p>
+	
+	</div>
 <?php
 include("includes/footer.php");
        ?>
