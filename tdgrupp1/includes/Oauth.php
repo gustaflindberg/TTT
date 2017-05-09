@@ -103,11 +103,13 @@ function invalidate_bearer_token($bearer_token){
 * Basic Search of the Search API
 * Based on https://dev.twitter.com/docs/api/1.1/get/search/tweets
 */
-function search_for_a_term($bearer_token, $result_type='mixed', $count='15'){
+
+
+function search_for_a_term($bearer_token, $linea, $result_type='mixed', $count='15'){
 	$url = "https://api.twitter.com/1.1/trends/place.json";
     //$url = "https://api.twitter.com/1.1/search/tweets.json"; // base url
-	//$q = urlencode(trim($query)); // query term
-	$formed_url ='?id=1'; // fully formed url
+	$q = urlencode(trim($linea)); // query term
+	$formed_url ='?id='.$q; // fully formed url
 	if($result_type!='mixed'){$formed_url = $formed_url.'&result_type='.$result_type;} // result type - mixed(default), recent, popular
 	if($count!='15'){$formed_url = $formed_url.'&count='.$count;} // results per page - defaulted to 15
 	$formed_url = $formed_url.'&#8217'; // makes sure the entities are included, note @mentions are not included see documentation
@@ -127,44 +129,5 @@ function search_for_a_term($bearer_token, $result_type='mixed', $count='15'){
 }
 
 
-$bearer_token = get_bearer_token(); // get the bearer token
-$text = search_for_a_term($bearer_token);
-//var_dump($text);
-$rader = explode("{", $text);
-	$namnArr = array();
-	$urlArr = array();
-    $promotedArr = array();
-    $queryArr = array();
-    $amountArr = array();
-//	$i=0;
-	foreach ( $rader as $rad )
-	{
-		$rad = trim( $rad );
-		$radData = str_getcsv( $rad, '"');
-		if( count( $radData ) >= 14 )	// ev tomrader
-		{
-			$namnArr[] =  utf8_encode( $radData[1] );
-			//$urlArr[] = utf8_encode( $radData[2] );
-            //$promotedArr[] = utf8_encode( $radData[3] );
-            //$queryArr[] = utf8_encode( $radData[4] );
-            $amountArr[] = utf8_encode( $radData[14] );
-		}
-	}
-	
-	// Ett PHP-objekt, med JSON-kodat data anpassat för Plotly.
-	$data = [ [
-		"x" => $namnArr,
-		"y" => $amountArr,
-		"type" => "bar"  
-	] ];
-	$ut = json_encode( $data);
-	//echo "{$ut}";
-    $ut_klar = preg_replace_callback('/\\\\u([0-9a-fA-F]{4})/', function ($match) {
-    return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UTF-16BE');
-    }, $ut);
-echo "{$ut_klar}";
 
-//print search_for_a_term($bearer_token); 
-invalidate_bearer_token($bearer_token); // invalidate the token
 ?>
-

@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
-<title>TTT</title>
 <head>
+<title>TTT</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/header.css" type="text/css">
 </head>
