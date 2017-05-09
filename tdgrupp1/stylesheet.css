@@ -1,107 +1,78 @@
 body { 
-background-color: #fff; 
+background-color: #8abadd; 
 font-family: Arial, Verdana, sans-serif; 
 font-size: 18px; 
 color: #000;
 }
 
 
-h1 { font-family: Arial, Verdana, sans-serif; font-size: 32px; color: #A52A2A }
-h2 { font-family: Arial, Verdana, sans-serif; font-size: 45px; color: #A52A2A }
 
-#mainfooter p { font-family: Arial, Verdana, sans-serif; font-size: 12px; color: #A52A2A }
 
 #chart_div {
+ margin: 0;
  position: absolute;
- left: 19%;
- top: 10%;
+ top: 74%;
+ left: 55%;
+ margin-right: -50%;
+ transform: translate(-50%, -50%);
+  
+ 
  }
 
 #FruitList {
  position: absolute;
- left: 8%;
- top: 20%;
+ left: 19%;
+ top: 50%;
  font-size: 18px;
  font-style: italic;
  }
 
 #submit {
  position: absolute;
- left: 14%;
- top: 20%;
+ left: 25%;
+ top: 50%;
  font-size: 16px;
  }
  
 #mainfooter {
 
  position: absolute;
- left: 40%;
- top: 52%;
+ left: 51%;
+ top: 94%;
  }
 
-img {
- position: absolute;
-   
-   left: 25%;
-   width: 728px;
-   height: 90px; ;
+.banner  {
+	
+	display: inline-block;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 50%;
+   max-height: 50%; 
+	
+ }
+ 
+ .arrow  {
+	
+	display: inline-block;
+   max-width: 10%;
+   max-height: 10%; 
+
 
  }
 
-#menu .active {
-    text-decoration: underline; 
+#pictures {
+ text-align: center;
+
 }
 
-#menu {
-	width: 100%;
-	float: left;
-	margin: 0 0 3em 0;
-	padding: 0;
-	list-style: none;
-	background-color: #f2f2f2;
-	border-bottom: 1px solid #ccc; 
-	border-top: 1px solid #ccc; }
-#menu li {
-	float: left; }
-#menu li a {
-	display: block;
-	padding: 8px 15px;
-	text-decoration: none;
-	font-weight: bold;
-	color: #069;
-	border-right: 1px solid #ccc; }
-#menu li a:hover {
-	color: #c00;
-	background-color: #fff; }
-#list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-#list li b {
-    border: 1px solid #ddd;
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; 
-    padding: 12px; 
-    text-decoration: none; 
-    font-size: 18px; 
-    color: black; 
-    display: block; 
-}
-
-#list li b.header {
-    background-color: #e2e2e2;
-    color: #A52A2A;
-    cursor: default; 
-}
 #About_Us{
  position: absolute;
- top: 70%;
- background: lightblue;
- width: 100%;
+ bottom: 0;
+ background: #a7cde7;
+ width: 25%;
 }
 #show{
+	bottom: 0;
     background-color: #8abadd;
     border: none;
     color: white;
@@ -117,3 +88,4 @@ img {
 #show:hover {
     background-color: #008CBA;
     color: white;
+
